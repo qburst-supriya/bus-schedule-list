@@ -5,14 +5,8 @@ import fetchBusDetails from '../../services/api/busDetails'
 import Modal from '../../components/Modal'
 import  { TripDetailsContextProvider, useTripDetailsContext } from '../../store/tripDetails'
 import SeatLayout from './SeatLayout'
-
-// type BusDetails =  {
-//   id: number,
-//   busId: string,
-//   busType: string,
-//   totalSeats: number,
-//   seatType: string
-//  }
+import { useTheme } from '../../styles/ThemeContext'
+import styled from 'styled-components'
 
 const RowItem = ({busDetails}:any) => 
   <TripDetailsContextProvider>
@@ -23,7 +17,10 @@ const RowItem = ({busDetails}:any) =>
 
 
 const RowItemWrapped = ({busDetails}:any) => 
+
 {
+const currentTheme = useTheme();
+
   const { setTripDetailsData} = useTripDetailsContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [content, setContent] = useState<ReactNode>(null);
@@ -49,31 +46,54 @@ const generateSeatLayout = (): ReactNode  =>
     <SeatLayout seatcount={busDetails.totalSeats}></SeatLayout>
 
     return  (
-        <div key={busDetails.id} style={{border: 'solid 1px', padding: '10px'}}>
-   <div style={{padding: '20px'}}> 
-   
-   {busDetails.busId}
-   </div>
-   <div style={{padding: '20px'}}> 
-   
-   {busDetails.busType}
-   </div>
-   <div style={{padding: '20px'}}> 
-   
-   {busDetails.totalSeats}
-   {busDetails.seatType}
+        <Styled.Wrapper key={busDetails.id} id={busDetails.id}>
+    <div>     
+    {busDetails.busId}
+    </div>
+    <div> 
+    
+    {busDetails.busType}
+    </div>
+    <div> 
+    
+    {busDetails.totalSeats}
+    {busDetails.seatType}
 
   
    </div>
    
-   <button onClick={handleViewDetailsClick}>{scheduleListWords.viewDetails}</button>
+   <Styled.ViewButton theme={currentTheme} onClick={handleViewDetailsClick}>{scheduleListWords.viewDetails}</Styled.ViewButton>
    <Modal onClose={handleCloseModal} isModalOpen={isModalOpen} content={content} />
-        </div>
+        </Styled.Wrapper>
        
        )
 }
 
 
 export default RowItem
+
+interface WrapperProps {
+  id: number
+}
+
+const Wrapper = styled.div<WrapperProps>`
+border: solid 1px; padding: 10px;
+display: flex;
+justify-content:space-between;
+align-items: center;
+padding-left: 20px;
+background-color: ${props => props?.id%2 === 1 ? '#eee' : 'white'};
+
+`
+const ViewButton = styled.button`
+border: solid 1px; 
+background: rgba(102,178,255, 0.2);
+height: 40px;
+`
+
+const Styled = {
+  Wrapper,
+  ViewButton
+}
 
 

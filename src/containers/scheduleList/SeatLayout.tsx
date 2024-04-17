@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import SingleSeat from './SingleSeat'
 import { useTripDetailsContext } from '../../store/tripDetails';
-
+import styled from 'styled-components'
 
 
 const SeatLayout = ({seatcount}: any) => 
@@ -58,24 +58,24 @@ const [totalseatsSelected, setTotalseatsSelected] = useState([]);
 
 
     return  (
-     <div style={{ flexWrap: 'wrap', width: '513px'}} >
-     <div style={{ flexWrap: 'wrap'}}>
+     <Styled.Wrapper>
+     <Styled.Content>
 {
     
   showSeatlayout()
     
     
     }
-    </div>
+    </Styled.Content>
 
   
    
    
   
-    <button style={{margin: '30px'}} onClick={()=> alert(`Selected seat numbers are ${totalseatsSelected.join(', ')}`)}>Proceed to booking</button>
+    <Styled.ProceedButton  onClick={()=> alert(`Selected seat numbers are ${totalseatsSelected.join(', ')}`)}>Proceed to booking</Styled.ProceedButton>
 
   
-  </div>  
+  </Styled.Wrapper>  
     
     )
 }
@@ -83,4 +83,24 @@ const [totalseatsSelected, setTotalseatsSelected] = useState([]);
 
 
 export default SeatLayout
+
+
+const Wrapper = styled.div`
+width: 513px;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+`
+const Content = styled.div`
+
+`
+const ProceedButton = styled.button`
+margin:30px`
+
+const Styled = {
+  Wrapper,
+  Content,
+  ProceedButton
+}
 

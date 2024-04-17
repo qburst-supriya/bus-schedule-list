@@ -4,6 +4,8 @@ import TwoColumnLayout from './components/layouts/TwoColumnLayout'
 
 function App() {
   return (
+    
+    
   // <FullScreen></FullScreen>
  <TwoColumnLayout></TwoColumnLayout>
   )

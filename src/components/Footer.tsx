@@ -1,14 +1,34 @@
+import { useTheme } from '../styles/ThemeContext'
+import styled from 'styled-components'
+
 
 const Footer = () => 
 
   {
+const currentTheme = useTheme();
+
     return  (
         <>
-    <div style={{height: '100px', backgroundColor: 'red', flexBasis: '100%'}}>Footer</div>
+    <Styled.Wrapper theme={currentTheme}>Copy right</Styled.Wrapper>
     </>
     
     )
 }
 
 export default Footer
+
+
+
+
+const Wrapper = styled.div`
+background-color: ${props => props.theme.theme['--primary']};
+height: 100px;
+display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const Styled = {
+  Wrapper,
+}
 

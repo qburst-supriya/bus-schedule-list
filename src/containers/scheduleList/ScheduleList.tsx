@@ -4,8 +4,10 @@ import {scheduleListWords} from '../../configs/constants'
 import fetchScheduleList from '../../services/api/scheduleList'
 import  { ScheduleListStoreProvider, useScheduleListStore } from '../../store/scheduleList'
 import RowItem from './RowItem'
+import styled from 'styled-components'
 
 
+ 
 const ScheduleList = () => 
   <ScheduleListStoreProvider>
 <ScheduleListWrapped></ScheduleListWrapped>
@@ -30,20 +32,40 @@ const ScheduleListWrapped = () =>
 
 
     return  (
-        <>
-    <div style={{minHeight: '500px', backgroundColor: 'yellow', flex: 2, display: 'grid'}}>
-    <h2>{scheduleListWords.conveyance}</h2> 
-
+       <Styled.Wrapper >
+    <h3>{scheduleListWords.conveyance}</h3> 
+<Styled.ListWrapper>
      {
-      scheduleListData.trips.map((busDetails: any)=>
-      <RowItem busDetails={busDetails}></RowItem>
+      scheduleListData.trips.map((busDetails)=>
+     {
+       return <RowItem busDetails={busDetails}></RowItem>}
       )
      } 
-    </div>
-    </>
+     </Styled.ListWrapper>
+   </Styled.Wrapper>
     )
 }
 
 
 export default ScheduleList
+
+
+
+const Wrapper = styled.div`
+ flex: 2; display: flex;
+flex-direction: column;
+
+padding: 40px;
+
+`
+const ListWrapper = styled.div`
+ display: flex;
+ flex-direction: column
+
+`
+
+const Styled = {
+  Wrapper,
+  ListWrapper
+}
 
