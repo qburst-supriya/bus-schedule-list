@@ -5,7 +5,7 @@ import DocumentHeader from '../DocumentHeader.tsx'
 import Footer from '../Footer.tsx'
 import Header from '../Header.tsx'
 import LeftPanel from '../LeftPanel.tsx'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 function TwoColumnLayout() {
   return (

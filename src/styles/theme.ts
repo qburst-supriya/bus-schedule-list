@@ -7,13 +7,13 @@ export interface Theme {
     '--text': Color;
 }
 
-enum Color {
-    LIGHT_GREEN = "#33ff99",
-    LIGHT_BLUE = "#66b2ff",
-    LIGHT_GRAY = "#c0c0c0",
-    WHITE = "#FFF",
-    BLACK = "#000",
-  }
+// enum Color {
+//     LIGHT_GREEN = "#33ff99",
+//     LIGHT_BLUE = "#66b2ff",
+//     LIGHT_GRAY = "#c0c0c0",
+//     WHITE = "#FFF",
+//     BLACK = "#000",
+//   }
 
   export type ThemeType = 'dark' | 'light';
 

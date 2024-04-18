@@ -4,8 +4,17 @@ import {scheduleListWords} from '../../configs/constants'
 import fetchScheduleList from '../../services/api/scheduleList'
 import  { ScheduleListStoreProvider, useScheduleListStore } from '../../store/scheduleList'
 import RowItem from './RowItem'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
+
+interface BusDetailsProps {
+  busId: string,
+  id: number,
+
+  busType: string,
+  totalSeats: number,
+  seatType: string
+}
 
  
 const ScheduleList = () => 
@@ -24,7 +33,7 @@ const ScheduleListWrapped = () =>
   const fetchData = useCallback(async()=> {
     const data = await fetchScheduleList();
     setScheduleListData(data)
-  }, [])
+  }, [setScheduleListData])
 
   useEffect(() => {
     fetchData()
@@ -38,7 +47,14 @@ const ScheduleListWrapped = () =>
      {
       scheduleListData.trips.map((busDetails)=>
      {
-       return <RowItem busDetails={busDetails}></RowItem>}
+      const details: BusDetailsProps = {
+        busId: busDetails.busId,
+        id: busDetails.id,      
+        busType: busDetails.busType,
+        totalSeats: busDetails.totalSeats,
+        seatType: busDetails.seatType
+      };
+       return <RowItem busDetails={details} key={details.id}></RowItem>}
       )
      } 
      </Styled.ListWrapper>

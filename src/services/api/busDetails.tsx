@@ -2,17 +2,11 @@
 import {apiUrls} from '../../configs/constants'
 import api from './base'
 
-type AxiosResponse = {
-  data: {
-    data: {
-      trip:{
-        bookings: any[]}}
-  }
-}
 
- const  fetchBusDetails = async (busId: number): Promise<any> =>{
+
+ const  fetchBusDetails = async (busId: number) =>{
     try {
-      let c:AxiosResponse = await api.get(apiUrls.busDetails + busId);
+      const c = await api.get(apiUrls.busDetails + busId);
       c.data.data.trip = {...c.data.data.trip, "bookings": [
         {
             "id": 10,
@@ -85,7 +79,7 @@ type AxiosResponse = {
     return c.data.data.trip;
         
     } catch (error) {
-      // Handle errors
+      // throw(error)
     }
   }
 

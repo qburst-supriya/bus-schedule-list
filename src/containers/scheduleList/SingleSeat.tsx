@@ -6,9 +6,14 @@ import seat from '../../assets/seat.png'
 import seatSelected from '../../assets/seatSelected.png'
 import seatBooked from '../../assets/seatBooked.png'
 
+type SingleSeatProps = {
+    updateSeatCount: ()=> void,
+    isBooked: boolean,
+    id: number
+}
 
 
-const SingleSeat = ({updateSeatCount, isBooked, id}: {updateSeatCount: (id: number, isBooked: boolean)=> void, isBooked: boolean, id: number}) => {
+const SingleSeat = ({updateSeatCount, isBooked, id}: SingleSeatProps ) => {
     const [url, setUrl] = useState(seat);
     const handleOnclick = ()=> {
         if (!isBooked) {
@@ -22,7 +27,10 @@ const SingleSeat = ({updateSeatCount, isBooked, id}: {updateSeatCount: (id: numb
         }
     }
     };
-    return (  <img src={isBooked ? seatBooked : url} onClick={handleOnclick} key ={id}/>)      
+    return (  <img alt="seats" src={isBooked ? seatBooked : url} onClick={handleOnclick} key ={id}
+    
+    role= "presentation" 
+    />)      
         
     
 }

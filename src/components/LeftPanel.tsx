@@ -1,6 +1,6 @@
 
 import { useTheme } from '../styles/ThemeContext'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
 
 

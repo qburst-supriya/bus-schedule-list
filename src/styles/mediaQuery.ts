@@ -2,14 +2,14 @@
 // import { css, styled } from 'styled-components';
 
 
-interface Size {
-    xs: string
-    sm: string
-    md: string
-    lg: string
-    xl: string
-    xxl: string
-  }
+// interface Size {
+//     xs: string
+//     sm: string
+//     md: string
+//     lg: string
+//     xl: string
+//     xxl: string
+//   }
   
   // const size: Size = {
   //   xs: '400px', // for small screen mobile

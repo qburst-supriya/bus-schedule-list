@@ -1,19 +1,22 @@
 import React, { Dispatch,  ReactNode,  SetStateAction } from "react";
 
+const Color ={
+  LIGHT_GREEN : "#33ff99",
+  LIGHT_BLUE: "#66b2ff",
+  LIGHT_GRAY : "#c0c0c0",
+  // WHITE = "#FFF",
+  BLACK : "#000",
+} as const
+type ColorKey = keyof typeof Color;
+type ColorValue = typeof Color[ColorKey] 
+
 export interface Theme {
-  '--primary': Color;
-  '--secondary': Color;
-  '--leftPanel': Color;
-  '--text': Color;
+  '--primary': ColorValue;
+  '--secondary': ColorValue;
+  '--leftPanel': ColorValue;
+  '--text': ColorValue;
 }
 
-enum Color {
-  LIGHT_GREEN = "#33ff99",
-  LIGHT_BLUE = "#66b2ff",
-  LIGHT_GRAY = "#c0c0c0",
-  WHITE = "#FFF",
-  BLACK = "#000",
-}
 
 export type ThemeType = 'dark' | 'light';
 

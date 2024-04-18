@@ -2,7 +2,9 @@
 import {apiUrls} from '../../configs/constants'
 import api from './base'
 
- const  fetchScheduleList = async (): Promise<any> =>{
+
+
+ const  fetchScheduleList = async () =>{
     try {
       let c= await api.get(apiUrls.scheduleList);
 
@@ -11,7 +13,7 @@ import api from './base'
     return c;
         
     } catch (error) {
-      // Handle errors
+    //handle error
     }
   }
 

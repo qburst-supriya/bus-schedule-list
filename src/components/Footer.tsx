@@ -1,5 +1,5 @@
+import {styled} from 'styled-components';
 import { useTheme } from '../styles/ThemeContext'
-import styled from 'styled-components'
 
 
 const Footer = () => 

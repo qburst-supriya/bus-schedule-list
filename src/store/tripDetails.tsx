@@ -2,7 +2,11 @@ import React, {  ReactNode, useContext, useState } from "react";
 
 
 type tripDetailsDataType = {
-    bookings: any[],
+    bookings: {id: number,
+      busId: string,    
+      busType: string,
+      totalSeats: number,
+      seatType: string}[],
   message: string,
   success: boolean
 }

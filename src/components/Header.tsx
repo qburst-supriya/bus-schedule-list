@@ -1,7 +1,7 @@
 
 import avatar from '../assets/avatar.png'
 import logo from '../assets/logo.png'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import { useTheme } from '../styles/ThemeContext'
 
 
@@ -12,10 +12,10 @@ const currentTheme = useTheme();
 
     return  (
         <>
-    <Styled.Wrapper bg={currentTheme.theme['--primary']}>
-        <img src={logo}/>
+    <Styled.Wrapper $bg={currentTheme.theme['--primary']}>
+        <img alt="logo" src={logo}/>
         <h2>Online Bus ticket booking</h2>
-        <img id="avatar" src={avatar}/>
+        <img id="avatar" alt="avatar" src={avatar}/>
     </Styled.Wrapper>
     </>
     
@@ -26,12 +26,12 @@ export default Header
 
 
 interface WrapperProps {
-    bg?: string;
+    $bg?: string;
   }
   
 
 const Wrapper = styled.div<WrapperProps>`
-  background-color: ${props => props.bg};
+  background-color: ${props => props.$bg};
   height: 100px;
       display: flex;
     flex-wrap: wrap;

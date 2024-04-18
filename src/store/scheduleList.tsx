@@ -3,7 +3,7 @@ import React, {  ReactNode, useContext, useState } from "react";
 
 type scheduleDataType = {
   resultCount: number,
-  trips: Array<any>,
+  trips: {id: number}[],
   message: string,
   success: boolean
 }

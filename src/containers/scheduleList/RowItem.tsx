@@ -6,9 +6,17 @@ import Modal from '../../components/Modal'
 import  { TripDetailsContextProvider, useTripDetailsContext } from '../../store/tripDetails'
 import SeatLayout from './SeatLayout'
 import { useTheme } from '../../styles/ThemeContext'
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
-const RowItem = ({busDetails}:any) => 
+interface BusDetailsProps {
+  id: number,
+  busId: string,
+  busType: string,
+  totalSeats: number,
+  seatType: string
+}
+
+const RowItem = ({busDetails}: {busDetails: BusDetailsProps}) => 
   <TripDetailsContextProvider>
 <RowItemWrapped busDetails={busDetails}></RowItemWrapped>
 
@@ -16,7 +24,7 @@ const RowItem = ({busDetails}:any) =>
 
 
 
-const RowItemWrapped = ({busDetails}:any) => 
+const RowItemWrapped= ({busDetails}: {busDetails: BusDetailsProps}) => 
 
 {
 const currentTheme = useTheme();
@@ -46,7 +54,7 @@ const generateSeatLayout = (): ReactNode  =>
     <SeatLayout seatcount={busDetails.totalSeats}></SeatLayout>
 
     return  (
-        <Styled.Wrapper key={busDetails.id} id={busDetails.id}>
+        <Styled.Wrapper  id={busDetails.id}>
     <div>     
     {busDetails.busId}
     </div>
@@ -73,7 +81,11 @@ const generateSeatLayout = (): ReactNode  =>
 export default RowItem
 
 interface WrapperProps {
-  id: number
+  id: number,
+  busId?: string,
+  busType?: string,
+  totalSeats?: number,
+  seatType?: string
 }
 
 const Wrapper = styled.div<WrapperProps>`

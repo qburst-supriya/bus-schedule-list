@@ -3,18 +3,21 @@
 import { useState } from 'react';
 import SingleSeat from './SingleSeat'
 import { useTripDetailsContext } from '../../store/tripDetails';
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 
+type SeatLayoutProps = {
+  seatcount: number
+}
 
-const SeatLayout = ({seatcount}: any) => 
+const SeatLayout = ({seatcount}: SeatLayoutProps) => 
 {
   const { tripDetailsData} = useTripDetailsContext();
 
 const [totalseatsSelected, setTotalseatsSelected] = useState([]);
     const eachRowEntries = Math.trunc(seatcount/4);
 
-    const seatsAllocation = Array.from({ length: seatcount }, (value, index) => { console.log(value); return index+1})
-    let chunks: number[][] = [];
+    const seatsAllocation = Array.from({ length: seatcount }, (value, index) =>index+1)
+    const chunks: number[][] = [];
     
     for (let i = 0; i < seatsAllocation.length; i += eachRowEntries) {
       const arrayElement = seatsAllocation.slice(i, i + eachRowEntries);
@@ -25,14 +28,14 @@ const [totalseatsSelected, setTotalseatsSelected] = useState([]);
 
       if (isSelected) {
         setTotalseatsSelected( (previosSelectedSeats)=> {
-          let selectedSeats: number[] = previosSelectedSeats;
+          const selectedSeats: number[] = previosSelectedSeats;
           selectedSeats.push(id)
         return previosSelectedSeats
         });
     } else {
       setTotalseatsSelected((previosSelectedSeats)=> {
         
-       let remainingSeats =  previosSelectedSeats.filter((item) => item !== id)
+       const remainingSeats =  previosSelectedSeats.filter((item) => item !== id)
       
       return remainingSeats
       })
@@ -45,10 +48,10 @@ const [totalseatsSelected, setTotalseatsSelected] = useState([]);
     const seats = [];
     for (let i = 0; i < chunks.length; i++) {
       for (let j = 0; j < chunks[i].length; j++) {   
-       if ( tripDetailsData.bookings.find((item): any => item.id === chunks[i][j]))
-        seats.push( <SingleSeat updateSeatCount={(id: number, isSelected: boolean)=>updateSeatSelection(id, isSelected)} id={chunks[i][j]} isBooked = {true}></SingleSeat>);
+       if ( tripDetailsData.bookings.find((item) => item.id === chunks[i][j]))
+        seats.push( <SingleSeat key={chunks[i][j]} updateSeatCount={(id, isSelected)=>updateSeatSelection(id, isSelected)} id={chunks[i][j]} isBooked = {true}></SingleSeat>);
         else 
-        seats.push( <SingleSeat updateSeatCount={(id:number, isSelected: boolean)=>updateSeatSelection(id, isSelected)} id={chunks[i][j]} isBooked = {false}></SingleSeat>);
+        seats.push( <SingleSeat key={chunks[i][j]} updateSeatCount={(id, isSelected)=>updateSeatSelection(id, isSelected)} id={chunks[i][j]} isBooked = {false}></SingleSeat>);
       }
 
   }

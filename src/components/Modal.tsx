@@ -1,18 +1,23 @@
 
 import close from '../assets/close.png'
 
-import styled from 'styled-components'
+import {styled} from 'styled-components'
 import { useTheme } from '../styles/ThemeContext'
+import { ReactNode } from 'react';
 
 
-const Modal = ({ onClose, content, isModalOpen }: { onClose: ()=> void, content: any, isModalOpen: boolean })=> {
+const Modal = ({ onClose, content, isModalOpen }: { onClose: ()=> void, content: ReactNode, isModalOpen: boolean })=> {
   
   const currentTheme = useTheme();
     return (
-      <Styled.Wrapper isModalOpen={isModalOpen} >
+      <Styled.Wrapper $isModalOpen={isModalOpen} >
             <Styled.ModalContent theme={currentTheme}>
+             
+
               <Styled.ModalHeader>
-        <img src={close} onClick={()=>onClose()} />
+                
+        <img src={close} onClick={()=>onClose()} alt="close" role= "presentation" 
+     onKeyDown={()=>onClose()} />
         <h2>Seat Layout</h2>
 
         </Styled.ModalHeader>
@@ -26,12 +31,12 @@ const Modal = ({ onClose, content, isModalOpen }: { onClose: ()=> void, content:
   export default Modal;
 
   interface WrapperProps {
-    isModalOpen: boolean;
+    $isModalOpen: boolean;
   }
   
 
 const Wrapper = styled.div<WrapperProps>`
-  display: ${props => props.isModalOpen ? 'flex': 'none'}; 
+  display: ${props => props.$isModalOpen ? 'flex': 'none'}; 
   position: fixed; 
   z-index: 1; 
   left: 0;
