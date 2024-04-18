@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { scheduleListWords } from '../../configs/constants';
 import fetchScheduleList from '../../services/api/scheduleList';
-import { ScheduleListStoreProvider, useScheduleListStore } from '../../store/scheduleList';
+import { ScheduleListStoreProvider, scheduleDataType, useScheduleListStore } from '../../store/scheduleList';
 import RowItem from './RowItem';
 import { styled } from 'styled-components';
 
@@ -23,7 +23,7 @@ const ScheduleListWrapped = () => {
   const { scheduleListData, setScheduleListData } = useScheduleListStore();
 
   const fetchData = useCallback(async () => {
-    const data = await fetchScheduleList();
+    const data = (await fetchScheduleList()) as scheduleDataType;
     setScheduleListData(data);
   }, [setScheduleListData]);
 
@@ -35,15 +35,15 @@ const ScheduleListWrapped = () => {
     <Styled.Wrapper>
       <h3>{scheduleListWords.conveyance}</h3>
       <Styled.ListWrapper>
-        {scheduleListData.trips.map((busDetails) => {
-          const details: BusDetailsProps = {
-            busId: busDetails.busId,
-            id: busDetails.id,
-            busType: busDetails.busType,
-            totalSeats: busDetails.totalSeats,
-            seatType: busDetails.seatType,
-          };
-          return <RowItem busDetails={busDetails} key={details.id}></RowItem>;
+        {scheduleListData.trips.map((busDetails: BusDetailsProps) => {
+          // const details: BusDetailsProps = {
+          //   busId: busDetails.busId,
+          //   id: busDetails.id,
+          //   busType: busDetails.busType,
+          //   totalSeats: busDetails.totalSeats,
+          //   seatType: busDetails.seatType,
+          // };
+          return <RowItem busDetails={busDetails} key={busDetails.id}></RowItem>;
         })}
       </Styled.ListWrapper>
     </Styled.Wrapper>

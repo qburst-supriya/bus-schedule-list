@@ -1,13 +1,15 @@
 import { apiUrls } from '../../configs/constants';
+import { scheduleDataType } from '../../store/scheduleList';
 import api from './base';
 
 const fetchScheduleList = async () => {
+  let response: scheduleDataType;
   try {
-    let c = await api.get(apiUrls.scheduleList);
+    const c = await api.get(apiUrls.scheduleList);
 
-    c = c?.data?.data;
+    response = c?.data?.data;
 
-    return c;
+    return response;
   } catch (error) {
     //handle error
   }

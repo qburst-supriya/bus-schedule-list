@@ -4,7 +4,7 @@ import seatSelected from '../../assets/seatSelected.png';
 import seatBooked from '../../assets/seatBooked.png';
 
 type SingleSeatProps = {
-  updateSeatCount: () => void;
+  updateSeatCount: (_id: number, _isSelected: boolean) => void;
   isBooked: boolean;
   id: number;
 };

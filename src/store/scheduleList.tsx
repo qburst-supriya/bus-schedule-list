@@ -1,11 +1,11 @@
 import React, { ReactNode, useContext, useState } from 'react';
 
-type scheduleDataType = {
+export interface scheduleDataType {
   resultCount: number;
-  trips: { id: number }[];
+  trips: { busId: string; id: number; busType: string; totalSeats: number; seatType: string }[];
   message: string;
   success: boolean;
-};
+}
 
 interface ScheduleListContextInterface {
   scheduleListData: scheduleDataType;

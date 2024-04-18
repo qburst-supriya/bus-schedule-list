@@ -13,7 +13,10 @@ const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
   const [totalseatsSelected, setTotalseatsSelected] = useState([]);
   const eachRowEntries = Math.trunc(seatcount / 4);
 
-  const seatsAllocation = Array.from({ length: seatcount }, (value, index) => index + 1);
+  const seatsAllocation = Array.from({ length: seatcount }, (value, index) => {
+    console.log(value);
+    return index + 1;
+  });
   const chunks: number[][] = [];
 
   for (let i = 0; i < seatsAllocation.length; i += eachRowEntries) {
@@ -45,7 +48,7 @@ const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
           seats.push(
             <SingleSeat
               key={chunks[i][j]}
-              updateSeatCount={(id, isSelected) => updateSeatSelection(id, isSelected)}
+              updateSeatCount={(id: number, isSelected: boolean) => updateSeatSelection(id, isSelected)}
               id={chunks[i][j]}
               isBooked={true}
             ></SingleSeat>,
@@ -54,7 +57,7 @@ const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
           seats.push(
             <SingleSeat
               key={chunks[i][j]}
-              updateSeatCount={(id, isSelected) => updateSeatSelection(id, isSelected)}
+              updateSeatCount={(id: number, isSelected: boolean) => updateSeatSelection(id, isSelected)}
               id={chunks[i][j]}
               isBooked={false}
             ></SingleSeat>,
