@@ -1,24 +1,19 @@
+import { apiUrls } from '../../configs/constants';
+import api from './base';
 
-import {apiUrls} from '../../configs/constants'
-import api from './base'
+const fetchScheduleList = async () => {
+  try {
+    let c = await api.get(apiUrls.scheduleList);
 
+    c = c?.data?.data;
 
-
- const  fetchScheduleList = async () =>{
-    try {
-      let c= await api.get(apiUrls.scheduleList);
-
-      c = c?.data?.data
-     
     return c;
-        
-    } catch (error) {
+  } catch (error) {
     //handle error
-    }
   }
+};
 
-
-export default fetchScheduleList
+export default fetchScheduleList;
 
 //   async function fetchMultipleData() {
 //     try {
@@ -31,7 +26,6 @@ export default fetchScheduleList
 //       // Handle errors
 //     }
 //   }
-
 
 // const source = axios.CancelToken.source();
 

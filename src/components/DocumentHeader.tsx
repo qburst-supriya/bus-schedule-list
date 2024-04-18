@@ -1,25 +1,17 @@
-
-
-
-
-import {Helmet} from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 
 type PropsType = {
-    titleText: string
-}
+  titleText: string;
+};
 
-
-const DocumentHeader = (props: PropsType) => 
-
-  {
-    return  (
+const DocumentHeader = (props: PropsType) => {
+  return (
     <>
-    <Helmet>
+      <Helmet>
         <title>{props.titleText} </title>
-    </Helmet>
-    
+      </Helmet>
     </>
-    )
-}
+  );
+};
 
-export default DocumentHeader
+export default DocumentHeader;

@@ -1,7 +1,6 @@
 // import { render } from 'react-dom';
 // import { css, styled } from 'styled-components';
 
-
 // interface Size {
 //     xs: string
 //     sm: string
@@ -10,16 +9,16 @@
 //     xl: string
 //     xxl: string
 //   }
-  
-  // const size: Size = {
-  //   xs: '400px', // for small screen mobile
-  //   sm: '600px', // for mobile screen
-  //   md: '900px', // for tablets
-  //   lg: '1280px', // for laptops
-  //   xl: '1440px', // for desktop / monitors
-  //   xxl: '1920px', // for big screens
-  // }
-  
+
+// const size: Size = {
+//   xs: '400px', // for small screen mobile
+//   sm: '600px', // for mobile screen
+//   md: '900px', // for tablets
+//   lg: '1280px', // for laptops
+//   xl: '1440px', // for desktop / monitors
+//   xxl: '1920px', // for big screens
+// }
+
 //   export const device = {
 //     xs: `(max-width: ${size.xs})`,
 //     sm: `(max-width: ${size.sm})`,
@@ -28,8 +27,6 @@
 //     xl: `(max-width: ${size.xl})`,
 //     xxl: `(max-width: ${size.xxl})`,
 //   }
-
-
 
 // const media = {
 //     xs: (...args: any[]) => css`

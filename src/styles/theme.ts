@@ -1,11 +1,11 @@
 // import styled, {css} from 'styled-components'
 
-export interface Theme {
-    '--primary': Color;
-    '--secondary': Color;
-    '--background': Color;
-    '--text': Color;
-}
+// export interface Theme {
+//     '--primary': Color;
+//     '--secondary': Color;
+//     '--background': Color;
+//     '--text': Color;
+// }
 
 // enum Color {
 //     LIGHT_GREEN = "#33ff99",
@@ -15,7 +15,7 @@ export interface Theme {
 //     BLACK = "#000",
 //   }
 
-  export type ThemeType = 'dark' | 'light';
+// export type ThemeType = 'dark' | 'light';
 
 // button.defaultProps = {
 //     theme: {
@@ -23,31 +23,31 @@ export interface Theme {
 //     }
 //   }
 
-  export const THEMES: Record<ThemeType, Theme> = {
-    light: {
-      "--primary": Color.LIGHT_BLUE,
-      "--secondary": Color.LIGHT_GREEN,
-      "--background": Color.LIGHT_GRAY,
-      "--text": Color.BLACK
+// export const THEMES: Record<ThemeType, Theme> = {
+//   light: {
+//     "--primary": Color.LIGHT_BLUE,
+//     "--secondary": Color.LIGHT_GREEN,
+//     "--background": Color.LIGHT_GRAY,
+//     "--text": Color.BLACK
 
-    },
-    dark: {
-        "--primary": Color.LIGHT_BLUE,
-        "--secondary": Color.LIGHT_GREEN,
-        "--background": Color.LIGHT_GRAY,
-        "--text": Color.BLACK
-    },
-  };
+//   },
+//   dark: {
+//       "--primary": Color.LIGHT_BLUE,
+//       "--secondary": Color.LIGHT_GREEN,
+//       "--background": Color.LIGHT_GRAY,
+//       "--text": Color.BLACK
+//   },
+// };
 
-  // const dark = {
-  //   main: "mediumseagreen"
-  // };
+// const dark = {
+//   main: "mediumseagreen"
+// };
 
-  // const light = {
-  //   main: "mediumseagreen"
-  // };
+// const light = {
+//   main: "mediumseagreen"
+// };
 
-  // const invertTheme = ({ fg, bg }) => ({
-  //   fg: bg,
-  //   bg: fg
-  // });
+// const invertTheme = ({ fg, bg }) => ({
+//   fg: bg,
+//   bg: fg
+// });
