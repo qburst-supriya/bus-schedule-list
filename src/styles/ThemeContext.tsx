@@ -71,6 +71,7 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = (props: ThemeProviderProps) => {
   const [currentTheme, setCurrentTheme] = React.useState<ThemeType>('light');
+
   return (
     <ThemeContext.Provider
       value={{

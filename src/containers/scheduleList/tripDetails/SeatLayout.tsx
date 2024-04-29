@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import SingleSeat from './SingleSeat';
-import { useTripDetailsContext } from '../../store/tripDetails';
-import { styled } from 'styled-components';
+import { TripDetailsContext } from './store';
+import { SeatlayoutStyled } from '../Styled';
+import { TripDetailsContextType } from './types';
+import { useCustomContext } from '../../../store/baseContext';
 
 type SeatLayoutProps = {
   seatcount: number;
 };
 
 const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
-  const { tripDetailsData } = useTripDetailsContext();
+  const { data } = useCustomContext<TripDetailsContextType>(TripDetailsContext);
 
   const [totalseatsSelected, setTotalseatsSelected] = useState([]);
   const eachRowEntries = Math.trunc(seatcount / 4);
@@ -44,7 +46,7 @@ const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
     const seats = [];
     for (let i = 0; i < chunks.length; i++) {
       for (let j = 0; j < chunks[i].length; j++) {
-        if (tripDetailsData.bookings.find((item) => item.id === chunks[i][j]))
+        if (data.data.bookings.find((item) => item.id === chunks[i][j]))
           seats.push(
             <SingleSeat
               key={chunks[i][j]}
@@ -68,32 +70,16 @@ const SeatLayout = ({ seatcount }: SeatLayoutProps) => {
   };
 
   return (
-    <Styled.Wrapper>
-      <Styled.Content>{showSeatlayout()}</Styled.Content>
+    <SeatlayoutStyled.Wrapper>
+      <SeatlayoutStyled.Content>{showSeatlayout()}</SeatlayoutStyled.Content>
 
-      <Styled.ProceedButton onClick={() => alert(`Selected seat numbers are ${totalseatsSelected.join(', ')}`)}>
+      <SeatlayoutStyled.ProceedButton
+        onClick={() => alert(`Selected seat numbers are ${totalseatsSelected.join(', ')}`)}
+      >
         Proceed to booking
-      </Styled.ProceedButton>
-    </Styled.Wrapper>
+      </SeatlayoutStyled.ProceedButton>
+    </SeatlayoutStyled.Wrapper>
   );
 };
 
 export default SeatLayout;
-
-const Wrapper = styled.div`
-  width: 513px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-const Content = styled.div``;
-const ProceedButton = styled.button`
-  margin: 30px;
-`;
-
-const Styled = {
-  Wrapper,
-  Content,
-  ProceedButton,
-};

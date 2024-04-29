@@ -1,33 +1,4 @@
-import close from '../assets/close.png';
-
 import { styled } from 'styled-components';
-import { useTheme } from '../styles/ThemeContext';
-import { ReactNode } from 'react';
-
-const Modal = ({
-  onClose,
-  content,
-  isModalOpen,
-}: {
-  onClose: () => void;
-  content: ReactNode;
-  isModalOpen: boolean;
-}) => {
-  const currentTheme = useTheme();
-  return (
-    <Styled.Wrapper $isModalOpen={isModalOpen}>
-      <Styled.ModalContent theme={currentTheme}>
-        <Styled.ModalHeader>
-          <img src={close} onClick={() => onClose()} alt="close" role="presentation" onKeyDown={() => onClose()} />
-          <h2>Seat Layout</h2>
-        </Styled.ModalHeader>
-        {content}
-      </Styled.ModalContent>
-    </Styled.Wrapper>
-  );
-};
-
-export default Modal;
 
 interface WrapperProps {
   $isModalOpen: boolean;
@@ -72,7 +43,7 @@ const ModalHeader = styled.div`
     margin-right: 0px;
   }
 `;
-const Styled = {
+export const Styled = {
   Wrapper,
   ModalContent,
   ModalHeader,
