@@ -8,6 +8,7 @@ import { useTheme } from '../../../styles/ThemeContext';
 import { RowItemStyled } from '../Styled';
 import { useCustomContext } from '../../../store/baseContext';
 import { TripDetailsContextType } from '../tripDetails/store/types';
+import { SeatTypes } from '../tripDetails/uiTypes';
 
 type BusDetailsProps = {
   id: number;
@@ -42,7 +43,9 @@ const RowItemWrapped = ({ busDetails }: { busDetails: BusDetailsProps }) => {
     setContent(null);
   };
 
-  const generateSeatLayout = (): ReactNode => <SeatLayout seatcount={busDetails.totalSeats}></SeatLayout>;
+  const generateSeatLayout = (): ReactNode => (
+    <SeatLayout seatcount={busDetails.totalSeats} layout={SeatTypes.SLEEPER}></SeatLayout>
+  );
 
   return (
     <RowItemStyled.Wrapper id={busDetails.id}>

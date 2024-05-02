@@ -1,29 +1,30 @@
 import { useState } from 'react';
-import seat from '../../../assets/seat.png';
-import seatSelected from '../../../assets/seatSelected.png';
-import seatBooked from '../../../assets/seatBooked.png';
+import { seatIcons, SeatTypes } from './uiTypes';
 
-type SingleSeatProps = {
-  updateSeatCount: (_id: number, _isSelected: boolean) => void;
+export type singleSeatPropType = {
+  type: SeatTypes;
+  seatNumber: number;
   isBooked: boolean;
-  id: number;
+  onClick: (_id: number, _isSelected: boolean) => void;
 };
 
-const SingleSeat = ({ updateSeatCount, isBooked, id }: SingleSeatProps) => {
-  const [url, setUrl] = useState(seat);
+const SingleSeat = ({ type, seatNumber, isBooked, onClick: onClickFromParent }: singleSeatPropType) => {
+  const icons = seatIcons[type];
+  const [url, setUrl] = useState(isBooked ? icons.bookedIcon : icons.normalIcon);
+  const [isSelected, setSelected] = useState(false);
+  const name = `seat${seatNumber}`;
   const handleOnclick = () => {
     if (!isBooked) {
-      const previousSelection = url === seatSelected;
-      if (previousSelection) {
-        updateSeatCount(id, false);
-        setUrl(seat);
-      } else {
-        updateSeatCount(id, true);
-        setUrl(seatSelected);
-      }
+      if (isSelected) {
+        onClickFromParent(seatNumber, false);
+        setUrl(icons.normalIcon);
+        setSelected(false);
+      } else onClickFromParent(seatNumber, true);
+      setUrl(icons.selectedIcon);
+      setSelected(true);
     }
   };
-  return <img alt="seats" src={isBooked ? seatBooked : url} onClick={handleOnclick} key={id} role="presentation" />;
+  return <img alt={name} src={url} onClick={handleOnclick} key={seatNumber} role="presentation" />;
 };
 
 export default SingleSeat;
