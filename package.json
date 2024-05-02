@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --force --host --port 3000",
-    "build": "tsc && vite build",
+    "localhost": "vite --force --host --port 3000 ",
+    "prod-build": "tsc && vite build ",
+    "dev-build": " tsc && vite build --mode development",
+    "stg-build": " tsc && vite build --mode staging",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview"
   },

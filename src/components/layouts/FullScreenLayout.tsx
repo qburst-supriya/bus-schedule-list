@@ -1,13 +1,11 @@
 import '../../App.css';
-import Content from '../../containers/scheduleList/ScheduleList.tsx';
-import DocumentHeader from '../DocumentHeader.tsx';
-import Footer from '../Footer.tsx';
-import Header from '../Header.tsx';
+import Content from '../../containers/scheduleList/scheduleList/Container.tsx';
+import Footer from '../footer/Footer.tsx';
+import Header from '../header/Header.tsx';
 
 function FullScreen() {
   return (
     <>
-      <DocumentHeader titleText="FullScreen" />
       <Header></Header>
       <Content></Content>
       <Footer></Footer>

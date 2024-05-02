@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import seat from '../../assets/seat.png';
-import seatSelected from '../../assets/seatSelected.png';
-import seatBooked from '../../assets/seatBooked.png';
+import seat from '../../../assets/seat.png';
+import seatSelected from '../../../assets/seatSelected.png';
+import seatBooked from '../../../assets/seatBooked.png';
 
 type SingleSeatProps = {
   updateSeatCount: (_id: number, _isSelected: boolean) => void;

@@ -1,11 +1,11 @@
-import { apiUrls } from '../../configs/constants';
-import api from './base';
+import { apiUrls } from '../../../../configs/apis';
+import api from '../../../../services/api/base';
 
 const fetchBusDetails = async (busId: number) => {
   try {
-    const c = await api.get(apiUrls.busDetails + busId);
-    c.data.data.trip = {
-      ...c.data.data.trip,
+    const response = await api.get(apiUrls.busDetails + busId);
+    response.data.data.trip = {
+      ...response.data.data.trip,
       bookings: [
         {
           id: 10,
@@ -75,7 +75,7 @@ const fetchBusDetails = async (busId: number) => {
       ],
     };
 
-    return c.data.data.trip;
+    return response.data.data.trip;
   } catch (error) {
     // throw(error)
   }
