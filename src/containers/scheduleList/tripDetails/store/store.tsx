@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
-import { DataProviderType } from '../../../store/types';
-import { createContext, DataProvider } from '../../../store/baseContext';
+import { DataProviderType } from '../../../../store/types';
+import { createContext, DataProvider } from '../../../../store/baseContext';
 
 import { ActionKind, ActionType, TripDetailsContextType, TripDetailsDataType } from './types';
 

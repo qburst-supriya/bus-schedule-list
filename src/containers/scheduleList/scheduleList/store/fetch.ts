@@ -1,5 +1,5 @@
-import { apiUrls } from '../../../configs/apis';
-import api from '../../../services/api/base';
+import { apiUrls } from '../../../../configs/apis';
+import api from '../../../../services/api/base';
 
 const fetchScheduleList = async () => {
   try {

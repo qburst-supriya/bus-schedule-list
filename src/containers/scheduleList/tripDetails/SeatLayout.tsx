@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import SingleSeat from './SingleSeat';
-import { TripDetailsContext } from './store';
+import { TripDetailsContext } from './store/store';
 import { SeatlayoutStyled } from '../Styled';
-import { TripDetailsContextType } from './types';
+import { TripDetailsContextType } from './store/types';
 import { useCustomContext } from '../../../store/baseContext';
 
 type SeatLayoutProps = {

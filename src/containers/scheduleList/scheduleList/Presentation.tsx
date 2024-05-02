@@ -1,6 +1,6 @@
 import RowItem from './RowItem';
 import { ScheduledListStyled } from '../Styled';
-import { TripDetailsType } from '../tripDetails/types';
+import { TripDetailsType } from '../tripDetails/store/types';
 type PropsType = {
   trips: TripDetailsType[] | [];
 };

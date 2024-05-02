@@ -1,13 +1,13 @@
 import { ReactNode, useState } from 'react';
 import { scheduleListWords } from '../../../configs/wordings';
-import fetchBusDetails from '../tripDetails/fetch';
+import fetchBusDetails from '../tripDetails/store/fetch';
 import Modal from '../../../components/modal/Modal';
-import { TripDetailsContext, TripDetailsProvider } from '../tripDetails/store';
+import { TripDetailsContext, TripDetailsProvider } from '../tripDetails/store/store';
 import SeatLayout from '../tripDetails/SeatLayout';
 import { useTheme } from '../../../styles/ThemeContext';
 import { RowItemStyled } from '../Styled';
 import { useCustomContext } from '../../../store/baseContext';
-import { TripDetailsContextType } from '../tripDetails/types';
+import { TripDetailsContextType } from '../tripDetails/store/types';
 
 type BusDetailsProps = {
   id: number;

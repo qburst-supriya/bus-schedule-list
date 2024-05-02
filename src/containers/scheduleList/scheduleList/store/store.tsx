@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
-import { createContext, DataProvider } from '../../../store/baseContext';
+import { createContext, DataProvider } from '../../../../store/baseContext';
 import { ActionKind, ActionType, ScheduleDataType, ScheduleListContextType } from './types';
-import { DataProviderType } from '../../../store/types';
+import { DataProviderType } from '../../../../store/types';
 
 //reducer
 export const ScheduleListReducer = (state: ScheduleDataType, action: ActionType): ScheduleDataType => {

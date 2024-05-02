@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import fetchScheduleList from './fetch';
-import { ScheduleListProvider, ScheduleDataContext } from './store';
-import { ScheduleDataType, ScheduleListContextType } from './types';
+import fetchScheduleList from './store/fetch';
+import { ScheduleListProvider, ScheduleDataContext } from './store/store';
+import { ScheduleDataType, ScheduleListContextType } from './store/types';
 import { useCustomContext } from '../../../store/baseContext';
 import ScheduleListUI from './Presentation';
 
